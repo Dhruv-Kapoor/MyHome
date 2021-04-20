@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="device"
+            type="com.example.myhome.Device" />
+    </data>
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="14dp">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fan"
+                android:adjustViewBounds="true"
+                android:layout_above="@id/tvName"
+                android:id="@+id/ivFan"
+                setFanLevel="@{device}"
+                app:tint="@color/grey"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{device.name}"
+                android:layout_above="@id/tvRoomName"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvRoomName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{device.room}"
+                android:textSize="14sp"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/grey"/>
+
+            <ImageView
+                android:id="@+id/ivPowerBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_power"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="4dp"
+                isOn="@{device.on}"
+                app:tint="@color/grey"/>
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
